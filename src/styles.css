@@ -141,8 +141,8 @@
 }
 :root {
   --signal: oklch(0.7 0.19 45);
-  --ink: oklch(0.2 0.03 250);
-  --ink-foreground: oklch(0.97 0.01 80);
+  --ink: oklch(0.995 0.004 80);
+  --ink-foreground: oklch(0.2 0.03 250);
 }
 @layer base {
   * {
