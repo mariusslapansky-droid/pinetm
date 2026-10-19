@@ -81,18 +81,48 @@ function Index() {
         ))}
       </section>
 
-      <section id="contact" className="bg-ink text-ink-foreground">
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 md:grid-cols-2">
+        <div className="relative">
+          <img src="https://pinet.ro/assets/img/tech.jpg" alt="Tehnician PiNet reparând un calculator" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" />
+          <div className="absolute -bottom-6 -right-4 rounded-2xl bg-primary px-6 py-4 text-primary-foreground shadow-lg">
+            <span className="font-display text-3xl font-extrabold">2006</span>
+            <p className="text-sm font-semibold">alături de afaceri</p>
+          </div>
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Partenerul tău IT</p>
+          <h2 className="mt-3 text-4xl font-extrabold leading-tight">Tu îți crești afacerea. <span className="text-primary">Noi avem grijă de IT.</span></h2>
+          <p className="mt-4 text-muted-foreground">Din 2006, PiNet Timișoara oferă companiilor servicii IT complete și soluții integrate. Îmbinăm experiența tehnică cu o abordare orientată spre nevoile reale ale fiecărui client, pentru parteneriate pe termen lung.</p>
+          <ul className="mt-6 space-y-3 font-semibold">
+            {["Consultanță pe înțelesul tău", "Soluții potrivite nevoilor tale", "Colaborări pe termen lung"].map((x) => (
+              <li key={x} className="flex items-center gap-3"><span className="grid size-6 place-items-center rounded-full bg-primary text-xs text-primary-foreground">✓</span>{x}</li>
+            ))}
+          </ul>
+          <a href="#contact" className="mt-8 inline-block rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Hai să discutăm →</a>
+        </div>
+      </section>
+
+      <section id="contact" className="border-t bg-secondary">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2">
           <div>
-            <h2 className="text-4xl font-extrabold">Cu ce te putem ajuta?</h2>
-            <p className="mt-3 opacity-75">Spune-ne ce ai nevoie și revenim cu o propunere adaptată.</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Contact</p>
+            <h2 className="mt-3 text-4xl font-extrabold">Cu ce te putem ajuta?</h2>
+            <p className="mt-3 text-muted-foreground">Spune-ne ce ai nevoie și revenim cât mai curând cu o propunere adaptată.</p>
+            <dl className="mt-8 grid gap-5 sm:grid-cols-2">
+              {[["Telefon", "0763 79 29 00", "tel:0763792900"], ["Email", "contact@pinet.ro", "mailto:contact@pinet.ro"], ["Adresă", "Str. Béla Bartók nr. 4, Dumbrăvița, jud. Timiș", ""], ["Program", "Luni–Vineri, 08:00–18:00", ""]].map(([k, v, h]) => (
+                <div key={k} className="border-l-2 border-primary pl-4">
+                  <dt className="text-sm text-muted-foreground">{k}</dt>
+                  <dd className="font-semibold">{h ? <a href={h}>{v}</a> : v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <dl className="grid gap-4 text-lg">
-            <div><dt className="text-sm text-signal">Telefon</dt><dd><a href="tel:0763792900">0763 79 29 00</a></dd></div>
-            <div><dt className="text-sm text-signal">Email</dt><dd><a href="mailto:contact@pinet.ro">contact@pinet.ro</a></dd></div>
-            <div><dt className="text-sm text-signal">Adresă</dt><dd>Str. Béla Bartók nr. 4, Dumbrăvița, jud. Timiș</dd></div>
-            <div><dt className="text-sm text-signal">Program</dt><dd>Luni–Vineri, 08:00–18:00</dd></div>
-          </dl>
+          <form onSubmit={(e) => { e.preventDefault(); alert("Mulțumim! Revenim în curând."); }} className="grid gap-4 rounded-2xl border bg-card p-8 shadow-xl">
+            <label className="grid gap-1 text-sm font-semibold">Nume<input required className="rounded-lg border bg-background px-4 py-3 font-normal outline-none focus:border-primary" /></label>
+            <label className="grid gap-1 text-sm font-semibold">Email<input required type="email" className="rounded-lg border bg-background px-4 py-3 font-normal outline-none focus:border-primary" /></label>
+            <label className="grid gap-1 text-sm font-semibold">Cum te putem ajuta?<textarea required rows={5} className="rounded-lg border bg-background px-4 py-3 font-normal outline-none focus:border-primary" /></label>
+            <button className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Trimite mesajul</button>
+          </form>
         </div>
       </section>
     </div>
