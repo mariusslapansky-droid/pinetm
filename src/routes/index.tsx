@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import banner from "@/assets/banner.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,13 +39,19 @@ function Index() {
         </div>
       </header>
 
-      <section id="servicii" className="bg-ink text-ink-foreground">
-        <div className="mx-auto max-w-7xl px-6 pb-16 pt-12">
+      <section id="servicii" className="bg-background">
+        <div className="relative overflow-hidden">
+          <img src={banner} alt="Rack de rețea și echipamente IT" className="h-72 w-full object-cover md:h-96" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 mx-auto flex max-w-7xl flex-col justify-center px-6">
           <p className="text-sm font-semibold uppercase tracking-widest text-signal">Servicii IT în Timișoara · din 2006</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
-            Tot IT-ul afacerii tale. <span className="text-signal">Un singur partener.</span>
+            Tot IT-ul afacerii tale. <span className="text-primary">Un singur partener.</span>
           </h1>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-ink-foreground/15 sm:grid-cols-2 lg:grid-cols-3">
+          </div>
+        </div>
+        <div className="mx-auto max-w-7xl px-6 pb-16">
+          <div className="-mt-10 relative grid gap-px overflow-hidden rounded-2xl bg-border shadow-xl sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <a key={s.n} href={s.h} className="group flex flex-col bg-ink p-7 transition-colors hover:bg-primary hover:text-primary-foreground">
                 <span className="font-display text-sm font-bold text-signal group-hover:text-primary-foreground">{s.n}</span>
